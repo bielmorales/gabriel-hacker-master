@@ -1,0 +1,99 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.matrix-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 65, 0.03) 2px,
+      rgba(0, 255, 65, 0.03) 4px
+    );
+  animation: matrix-scroll 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes matrix-scroll {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(100px); }
+}
+
+.content {
+  text-align: center;
+  z-index: 1;
+  padding: 2rem;
+}
+
+.glitch {
+  font-size: clamp(2rem, 8vw, 5rem);
+  font-weight: 900;
+  color: #00ff41;
+  text-shadow: 
+    0 0 10px #00ff41,
+    0 0 20px #00ff41,
+    0 0 30px #00ff41,
+    0 0 40px #00ff41;
+  letter-spacing: 0.1em;
+  margin-bottom: 3rem;
+  position: relative;
+  animation: glitch 2s infinite;
+}
+
+@keyframes glitch {
+  0%, 100% {
+    text-shadow: 
+      0 0 10px #00ff41,
+      0 0 20px #00ff41,
+      0 0 30px #00ff41;
+  }
+  50% {
+    text-shadow: 
+      0 0 20px #00ff41,
+      0 0 30px #00ff41,
+      0 0 40px #00ff41,
+      0 0 50px #00ff41;
+  }
+}
+
+.terminal {
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid #00ff41;
+  border-radius: 8px;
+  padding: 2rem;
+  font-size: 1.2rem;
+  text-align: left;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 
+    0 0 20px rgba(0, 255, 65, 0.3),
+    inset 0 0 20px rgba(0, 255, 65, 0.1);
+}
+
+.prompt {
+  color: #00ff41;
+  font-weight: bold;
+}
+
+.output {
+  color: #fff;
+  margin: 0.5rem 0 1.5rem 0;
+  padding-left: 1rem;
+}
+
+.terminal p {
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
